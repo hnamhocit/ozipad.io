@@ -27,7 +27,7 @@ const AuthScreen = () => {
 	}
 
 	return (
-		<div className='bg-primary h-screen relative'>
+		<div className='bg-primary h-screen relative overflow-hidden'>
 			<div className="h-1/5 flex items-center justify-around px-4">
 				<div className='space-y-2 text-white'>
 					<div className='text-3xl md:text-4xl font-semibold'>
@@ -44,7 +44,7 @@ const AuthScreen = () => {
 				</div>
 			</div>
 
-			<div className="absolute bottom-0 left-0 w-full h-4/5 py-4 space-y-4 rounded-t-4xl bg-dark z-10">
+			<div className="absolute bottom-0 left-0 w-full h-4/5 py-4 space-y-4 rounded-t-4xl bg-dark z-10 overflow-y-scroll scrollbar-hide">
 				{currPage !== 'login' && (
 					<Button onPress={handleLogin} isIconOnly variant='light' className="absolute top-7 left-7">
 						<Image src='/auth/caret-left.svg' alt='Caret left' />

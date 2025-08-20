@@ -2,7 +2,7 @@
 
 import React from 'react'
 import {Button} from "@heroui/button";
-import {useThemeStore} from '@/stores';
+import {useThemeStore, useUserStore} from '@/stores';
 import {LanguagesIcon, MoonIcon, SunIcon} from 'lucide-react';
 import DropdownButton from './DropdownButton';
 import {Divider, DropdownItem, Image} from "@heroui/react";
@@ -11,6 +11,7 @@ import {Dropdown, DropdownMenu, DropdownTrigger} from "@heroui/dropdown";
 
 const Header = () => {
 	const { theme, toggleTheme } = useThemeStore()
+	const { logout }  = useUserStore()
 
 	return (
 		<div className='sticky top-0 left-0 h-32 bg-semidark'>
@@ -33,9 +34,18 @@ const Header = () => {
 							{theme === 'dark' ? <MoonIcon /> : <SunIcon />}
 						</Button>
 
-						<Button isIconOnly variant='light'>
-							<Image src='/main/user.svg' alt='User' />
-						</Button>
+						<Dropdown>
+							<DropdownTrigger>
+								<Button isIconOnly variant='light'>
+									<Image src='/main/user.svg' alt='User' />
+								</Button>
+							</DropdownTrigger>
+
+							<DropdownMenu>
+								<DropdownItem onPress={logout} key='logout' color='danger'>Logout</DropdownItem>
+							</DropdownMenu>
+						</Dropdown>
+
 					</div>
 				</div>
 

@@ -1,9 +1,9 @@
-import {FC, useState} from 'react'
-import {InputProps} from "@heroui/input";
-import {Button, Input} from "@heroui/react";
-import {Image} from "@heroui/image";
+import { FC, useState } from 'react'
+import { InputProps } from "@heroui/input";
+import { Button, Input } from "@heroui/react";
+import { Image } from "@heroui/image";
 
-const InputPassword:FC<InputProps> = (props) => {
+const InputPassword: FC<InputProps> = (props) => {
 	const [isShow, setIsShow] = useState(false);
 
 	const toggleIsShow = () => setIsShow(!isShow);
@@ -11,7 +11,7 @@ const InputPassword:FC<InputProps> = (props) => {
 	return (
 		<Input
 			{...props}
-			type='password'
+			type={isShow ? 'text' : 'password'}
 			endContent={
 				<Button isIconOnly variant={'light'} onPress={toggleIsShow}>
 					{isShow

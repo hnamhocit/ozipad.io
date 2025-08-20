@@ -1,8 +1,8 @@
-import {Theme} from "@/interfaces/theme";
+import { Theme } from "@/interfaces/theme";
 
 export interface IUser {
 	id: string;
-	displayName: string;
-	email: string;
+	username: string;
+	email: string | null;
 	theme: Theme
 }
